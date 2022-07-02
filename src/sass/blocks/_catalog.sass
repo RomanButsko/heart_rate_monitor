@@ -26,10 +26,20 @@
             &_active
                 background-color: $main-color
                 color: #ffff
+    &_content
+        display: none
+        flex-wrap: wrap
+        justify-content: space-between
+        margin-top: 57px
+        &_active
+            display: flex
     &_cards
+        display: inline-block
         width: 300px
         border: 1px solid rgba(232, 232, 232, 1)
         padding: 27px 19px 21px 19px
+        margin-top: 20px
+        overflow: hidden
         &__photo
             img
                 display: block
@@ -66,3 +76,53 @@
             font-size: 20px
             color: #050505
             font-weight: 700
+        &_side
+            display: flex
+            width: 200%
+
+            &__firstSide
+                width: 50%
+                margin-right: 20px
+                overflow: hidden
+                transform: translateX(0%)
+                transition: 0.5s all
+                &_active
+                    transform: translateX(-100%)
+                    margin-right: -20px
+            &__secondSide
+                width: 50%
+                margin-left: 20px
+                transform: translateX(100%)
+                transition: 0.5s all
+                ul
+                    position: relative
+                    width: 100%
+                    list-style-type: none
+                    li
+                        position: relative
+                        font-size: 14px
+                        color: #555555
+                        margin-bottom: 10px
+                        &:before
+                            content: ''
+                            position: absolute
+                            top: 8px
+                            left: -14px
+                            width: 5px
+                            height: 5px
+                            background-color: $main-color
+                a
+                    position: absolute
+                    left: 50%
+                    bottom: 0
+                    text-align: center
+                    transform: translateX(calc(-50% - 19px))
+                    display: block
+                    font-size: 16px
+                    text-transform: uppercase
+                    color: $main-color
+                    &:hover
+                        color: $main-color
+                &_active
+                    transform: translateX(-100%)
+                    margin-left: 20px
