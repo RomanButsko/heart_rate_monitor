@@ -20,6 +20,28 @@ $(document).ready(function(){
 }
     chooseCards('.catalog_cards__link')
     chooseCards('.catalog_cards_side__secondSide__link')
+
+    //Modals
+
+    $('[data-modal=consultation]').on('click', () => {
+        $('.overheight, #consultation').fadeIn('slow')
+    })
+    $('.modal_close').on('click', () => {
+        $('.overheight,  #consultation').fadeOut('slow')
+    })
+    $('.button__card').on('click', () => {
+        $('.overheight, #order').fadeIn('slow')
+    })
+    $('.button__card').each(function(item) {
+        $(this).on('click', function() {
+            $('#order .modal_subdescr').text($('.catalog_cards__h3').eq(item).text())
+        })
+    })
+    $('.modal_close').on('click', () => {
+        $('.overheight,  #order').fadeOut('slow')
+    })
+
+    
 })
 
 
