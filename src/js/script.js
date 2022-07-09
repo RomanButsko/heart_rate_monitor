@@ -71,6 +71,21 @@ $(document).ready(function(){
     changeForm(".form_submit");
     changeForm('#consultation form');
     changeForm('#order form');
+
+    $('.form').submit(function(e) {
+        e.preventDefault();
+        $.ajax ({
+            type: 'POST',
+            url: '/src/mailer/smart.php',
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find('input').value = '';
+            $('#cosultation, #order').fadeOut()
+            $('.overheight', '#response').fadeIn()
+            $('form').trigger('reset');
+        })
+        return false
+    })
 })
 
 
